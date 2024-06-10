@@ -465,6 +465,26 @@ irr_wateruse(size_t iCell)
         avail_frac = 0;
     }
 
+// for debugging: write received irrigation to file
+/*
+char *filename = "received.txt";
+char *cwd = getcwd(NULL, 0);
+char *filepath = malloc(strlen(cwd) + strlen(filename) + 2); // +2 for the slash and null terminator
+sprintf(filepath, "%s/%s", cwd, filename);
+
+FILE *file = fopen(filepath, "a");
+if (file == NULL) {
+   printf("Error opening file at path: %s! errno: %d\n", filepath, errno);
+   free(filepath);
+   free(cwd);
+   return 1;
+} else {
+   printf("File opened successfully at path: %s.\n", filepath);
+}
+
+free(filepath);
+free(cwd);
+*/
     // do irrigation
     if (available > 0) {
         for (iIrr = 0; iIrr < irr_con_map[iCell].ni_active; iIrr++) {
@@ -501,12 +521,18 @@ irr_wateruse(size_t iCell)
                                        area_fract;
                             leftover += cirr_var->leftover * veg_fract *
                                         area_fract;
+
+                            // Inside the loop for debugging:
+                    //        fprintf(file, "%f\n", cirr_var->received);
+
                         }
                     }
                 }
             }
         }
     }
+    // After the loop:
+//    fclose(file);
 
     // check water balance
     if ((applied - prev_applied) + (leftover - prev_leftover) - received >

@@ -225,6 +225,9 @@ plugin_store(nc_file_struct *state_file)
     if (plugin_options.ROUTING) {
         rout_store(state_file);
     }
+    if (plugin_options.IRRIGATION) {
+        irr_store(state_file);
+    }
     if (plugin_options.DAMS) {
         dam_store(state_file);
     }

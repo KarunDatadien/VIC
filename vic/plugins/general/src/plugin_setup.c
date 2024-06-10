@@ -259,6 +259,9 @@ plugin_restore(void)
     if (plugin_options.ROUTING) {
         rout_restore();
     }
+    if (plugin_options.IRRIGATION) {
+        irr_restore();
+    }
     if (plugin_options.DAMS) {
         dam_restore();
     }
@@ -282,6 +285,11 @@ plugin_compute_derived_state_vars(void)
 
     if (plugin_options.ROUTING) {
         rout_compute_derived_state_vars();
+    }
+
+//To do: necessary?
+    if (plugin_options.IRRIGATION) {
+        irr_compute_derived_state_vars();
     }
     if (plugin_options.DAMS) {
         dam_compute_derived_state_vars();

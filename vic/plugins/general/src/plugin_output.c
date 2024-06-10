@@ -79,7 +79,7 @@ plugin_set_output_met_data_info(void)
         wu_set_output_met_data_info();
     }
     if (plugin_options.IRRIGATION) {
-        irr_set_output_met_data_info();
+        //irr_set_output_met_data_info();
     }
     if (plugin_options.WOFOST) {
         crop_set_output_met_data_info();
@@ -228,7 +228,7 @@ plugin_get_default_outvar_aggtype(unsigned int  varid,
         wu_history(varid, agg_type);
     }
     if (plugin_options.IRRIGATION) {
-        irr_history(varid, agg_type);
+//        irr_history(varid, agg_type);
     }
     if (plugin_options.WOFOST) {
         crop_history(varid, agg_type);
@@ -246,6 +246,9 @@ plugin_set_state_meta_data_info(void)
     if (plugin_options.ROUTING) {
         rout_set_state_meta_data_info();
     }
+    if (plugin_options.IRRIGATION) {
+        irr_set_state_meta_data_info();
+    }
     if (plugin_options.DAMS) {
         dam_set_state_meta_data_info();
     }
@@ -261,6 +264,9 @@ plugin_set_nc_state_file_info(nc_file_struct *nc_state_file)
 
     if (plugin_options.ROUTING) {
         rout_set_nc_state_file_info(nc_state_file);
+    }
+    if (plugin_options.IRRIGATION) {
+//        irr_set_nc_state_file_info(nc_state_file);
     }
     if (plugin_options.DAMS) {
         dam_set_nc_state_file_info(nc_state_file);
@@ -279,6 +285,9 @@ plugin_add_state_dim(char           *filename,
     if (plugin_options.ROUTING) {
         rout_add_state_dim(filename, nc_state_file);
     }
+    if (plugin_options.IRRIGATION) {
+//        irr_add_state_dim(filename, nc_state_file);
+    }
     if (plugin_options.DAMS) {
         dam_add_state_dim(filename, nc_state_file);
     }
@@ -296,6 +305,9 @@ plugin_add_state_dim_var(char           *filename,
     if (plugin_options.ROUTING) {
         rout_add_state_dim_var(filename, nc_state_file);
     }
+    if (plugin_options.IRRIGATION) {
+        //irr_add_state_dim_var(filename, nc_state_file);
+    }
     if (plugin_options.DAMS) {
         dam_add_state_dim_var(filename, nc_state_file);
     }
@@ -312,6 +324,9 @@ plugin_add_state_dim_var_data(char           *filename,
 
     if (plugin_options.ROUTING) {
         rout_add_state_dim_var_data(filename, nc_state_file);
+    }
+    if (plugin_options.IRRIGATION) {
+        //irr_add_state_dim_var_data(filename, nc_state_file);
     }
     if (plugin_options.DAMS) {
         dam_add_state_dim_var_data(filename, nc_state_file);
@@ -347,6 +362,9 @@ plugin_set_nc_state_var_info(nc_file_struct *nc)
 
         if (plugin_options.ROUTING) {
             rout_set_nc_state_var_info(nc, i);
+        }
+        if (plugin_options.IRRIGATION) {
+            //irr_set_nc_state_var_info(nc, i);
         }
         if (plugin_options.DAMS) {
             dam_set_nc_state_var_info(nc, i);

@@ -150,12 +150,15 @@ typedef struct {
     int month_dimid; /**< (calendar) month dimension id */
     int wu_dimid; /**< water use sector dimension id */
     int crop_dimid; /**< crop type dimension id */
+    int irr_dimid; /**< irrigation variable dimension id */
+
     size_t rdt_size; /**< size of rout step dimension */
     size_t dam_size; /**< size of dam_class dimension */
     size_t hist_size; /**< size of history dimension */
     size_t month_size; /**< size of (calendar) month dimension */
     size_t wu_size; /**< size of water use class dimension */
     size_t crop_size; /**< size of crop types dimension */
+    size_t irr_size; /**< irrigation variable dimension id */
 
     bool open;
     nc_var_struct *nc_vars;
